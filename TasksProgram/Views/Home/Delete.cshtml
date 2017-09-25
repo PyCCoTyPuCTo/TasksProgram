@@ -1,0 +1,19 @@
+﻿@model TasksProgram.Models.Task
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление</h2>
+
+<dl>
+    <dt>Название</dt>
+    <dd>
+        @Html.DisplayFor(m => m.Title)
+    </dd>
+
+    <dt>Автор</dt>
+    <dd>
+        @Html.DisplayFor(m => m.Record)
+    </dd>
+</dl>
