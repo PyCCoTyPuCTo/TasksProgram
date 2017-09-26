@@ -1,23 +1,21 @@
 ﻿@{
-    ViewBag.Title = "Редкатирование";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model TasksProgram.Models.Task
-@using (Html.BeginForm("EditTask", "Home", FormMethod.Post))
+
+@using (Html.BeginForm())
 {
-    <fieldset>
         @Html.HiddenFor(m => m.ID)
         <p>
-            @Html.LabelFor(m => m.Title, "Заголовок")
+            @Html.LabelFor(m => m.Title)
             <br />
             @Html.EditorFor(m => m.Title)
         </p>
         <p>
-            @Html.LabelFor(m => m.Record, "Текст")
+            @Html.LabelFor(m => m.Record)
             <br />
             @Html.EditorFor(m => m.Record)
         </p>
         <p><input type="submit" value="Сохранить" /></p>
-    </fieldset>
 }

@@ -1,24 +1,24 @@
-﻿@{
+﻿@using TasksProgram.Models;
+@model IEnumerable<Task>
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Планировщик</title>
-</head>
-<body>
-    <div>
-        <h3>Заметки</h3>
-        @foreach (TasksProgram.Models.Task b in Model)
-        {
-            <td>
-                <tr><p>@b.Title</p></tr>
-                <tr><p>@b.Record</p></tr>  
-            </td>
-        }
-    </div>
-</body>
-</html>
+<table>
+    <p>
+        @Html.ActionLink("Создать заметку", "AddNew")
+    </p>
+    <h3>Заметки</h3>
+    @foreach (Task task in Model)
+    {
+        <td>
+        <tr><p>@task.Title</p></tr>
+        <tr><p>@task.Record</p></tr>
+        @Html.ActionLink("Редактировать", "EditTask", new { id = task.ID });
+        @Html.ActionLink("Удалить", "Delete", new { id = task.ID });
+
+        </td>
+    }
+</table>

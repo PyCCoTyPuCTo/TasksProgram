@@ -14,7 +14,7 @@ namespace TasksProgram
     {
         protected void Application_Start()
         {
-            //Database.SetInitializer(new TaskDbInit());
+            Database.SetInitializer(new TaskDbInit());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

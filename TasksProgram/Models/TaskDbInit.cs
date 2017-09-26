@@ -10,9 +10,9 @@ namespace TasksProgram.Models
     {
         protected override void Seed(TaskContext db)
         {
-            //db.Tasks.Add(new Task { ID = 3, Title = "ddddd", Record = "dddd" });
-            //db.Tasks.Add(new Task { ID = 4, Title = "ddddds", Record = "dddd1" });
-            //db.Tasks.Add(new Task { ID = 5, Title = "ddddds", Record = "dddd22" });
+            db.Tasks.Add(new Task { ID = 1, Title = "ddddd", Record = "dddd" });
+            db.Tasks.Add(new Task { ID = 2, Title = "ddddds", Record = "dddd1" });
+            db.Tasks.Add(new Task { ID = 3, Title = "ddddds", Record = "dddd22" });
         }
     }
 }

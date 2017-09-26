@@ -9,11 +9,11 @@
 
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(m => m.Title, "Заголовок")
+    @Html.LabelFor(m => m.Title)
     <br />
     @Html.EditorFor(m => m.Title)
 
-    @Html.LabelFor(m => m.Record, "Текст")
+    @Html.LabelFor(m => m.Record)
     <br />
     @Html.EditorFor(m => m.Record)
     <br /><br />
