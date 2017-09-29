@@ -15,19 +15,18 @@ namespace TasksProgram.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Tasks);
+                return View(db.Tasks);
         }
 
         [HttpGet]
         public ActionResult EditTask(int? id)
         {
-            if (id == null)
-                return HttpNotFound();
-   
-            Task task = db.Tasks.Find(id);
-            if (task != null)
-                return (View(task));
+                if (id == null)
+                    return HttpNotFound();
 
+                Task task = db.Tasks.Find(id);
+                if (task != null)
+                    return (View(task));
             return HttpNotFound();
         }
 
@@ -36,9 +35,8 @@ namespace TasksProgram.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(task).State = EntityState.Modified;
-                db.SaveChanges();
-
+                    db.Entry(task).State = EntityState.Modified;
+                    db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -56,9 +54,9 @@ namespace TasksProgram.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(task).State = EntityState.Added;
-                db.SaveChanges();
-
+                    db.Entry(task).State = EntityState.Added;
+                    db.SaveChanges();
+                
                 return RedirectToAction("Index");
             }
 
@@ -66,33 +64,23 @@ namespace TasksProgram.Controllers
         }
 
         [HttpGet]
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            Task deleteTask = db.Tasks.Find(id);
-            if (deleteTask == null)
-                return HttpNotFound();
+                Task deleteTask = db.Tasks.Find(id);
+                if (deleteTask == null)
+                {
+                    return HttpNotFound();
+                }
 
-            return View(deleteTask);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        public ActionResult DeleteSucses(int id)
-        {
-            Task deleteTask = db.Tasks.Find(id);
-            if (deleteTask == null)
-            {
-                return HttpNotFound();
-            }
-
-            db.Tasks.Remove(deleteTask);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+                db.Tasks.Remove(deleteTask);
+                db.SaveChanges();
+                return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
-            base.Dispose(disposing);
+                db.Dispose();
+                base.Dispose(disposing);
         }
     }
 }
