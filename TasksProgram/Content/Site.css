@@ -1,8 +1,8 @@
 ﻿body {
-    font-size: 13px;
+    font-size: 14px;
     font-family: Verdana, Arial, Helvetica, Sans-serif;
-    background-color: #f7f7fa;
-    padding-left: 40px;
+    background-color: #d3d3ff;
+    padding-left: 50px;
 }
 
 nav{
@@ -22,9 +22,29 @@ nav{
 }
 
 td{
-    padding-right: 10px;
+    padding-right: 40px;
 }
 
 input{
     width: 150px;
+}
+
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
 }

@@ -3,14 +3,17 @@
 <head>
     <meta charset="utf-8"/>
     <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css"/>
+    @Styles.Render("~/Content/css")
 </head>
 
 <body>
     <nav>
-        <ul class="menu">
-            <li>@Html.ActionLink("Главная","Index","Home")</li>
+        <div class="btn-group" role="group">
+            <ul class="menu">
+                <li>@Html.ActionLink("Главная", "Index", "Home", new { @class = "btn btn-default" } )</li>
+                <li>@Html.ActionLink("Создать заметку", "AddNew", "Home", new { @class = "btn btn-default" })</li>
         </ul>
+    </div>
     </nav>
     @RenderBody()
 </body>

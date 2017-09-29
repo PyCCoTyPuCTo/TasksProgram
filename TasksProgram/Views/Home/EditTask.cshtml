@@ -6,16 +6,20 @@
 
 @using (Html.BeginForm())
 {
-        @Html.HiddenFor(m => m.ID)
-        <p>
-            @Html.LabelFor(m => m.Title)
-            <br />
-            @Html.EditorFor(m => m.Title)
-        </p>
-        <p>
-            @Html.LabelFor(m => m.Record)
-            <br />
-            @Html.EditorFor(m => m.Record)
-        </p>
-        <p><input type="submit" value="Сохранить" /></p>
+     @Html.HiddenFor(m => m.ID)
+     <div class="editor-lable">
+     @Html.LabelFor(m => m.Title)
+     </div>
+     <div class="editor-field">
+     @Html.EditorFor(m => m.Title)
+     @Html.ValidationMessageFor(m => m.Title)
+     </div>
+     <div class="editor-lable">
+     @Html.LabelFor(m => m.Record)
+     </div>
+     <div class="editor-field">
+     @Html.EditorFor(m => m.Record)
+     @Html.ValidationMessageFor(m => m.Record)
+     </div>
+     <input type="submit" value="Сохранить" />
 }

@@ -6,19 +6,19 @@
 }
 
 
-<table>
-    <p>
-        @Html.ActionLink("Создать заметку", "AddNew")
-    </p>
-    <h3>Заметки</h3>
-    @foreach (Task task in Model)
-    {
-        <td>
-        <tr><p>@task.Title</p></tr>
-        <tr><p>@task.Record</p></tr>
-        @Html.ActionLink("Редактировать", "EditTask", new { id = task.ID });
-        @Html.ActionLink("Удалить", "Delete", new { id = task.ID });
-
-        </td>
+<div class="table-striped">
+        @foreach (Task task in Model)
+        {
+            <td>
+                <div class="row">
+                    <tr><p>@task.Title</p></tr>
+                    <tr><p>@task.Record</p></tr>
+                    <div class="btn-group" role="group">
+                        @Html.ActionLink("Редактировать", "EditTask", new { id = task.ID }, new { @class = "btn btn-warning" })
+                        @Html.ActionLink("Удалить", "Delete", new { id = task.ID }, new { @class ="btn btn-danger" })
+                    </div>
+                </div>
+                <br />
+            </td>
     }
-</table>
+</div>

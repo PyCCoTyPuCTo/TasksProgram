@@ -34,10 +34,15 @@ namespace TasksProgram.Controllers
         [HttpPost]
         public ActionResult EditTask(Task task)
         {
-            db.Entry(task).State = EntityState.Modified;
-            db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                db.Entry(task).State = EntityState.Modified;
+                db.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+
+            return View(task);
         }
 
         [HttpGet]
@@ -49,10 +54,15 @@ namespace TasksProgram.Controllers
         [HttpPost]
         public ActionResult AddNew(Task task)
         {
-            db.Entry(task).State = EntityState.Added;
-            db.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                db.Entry(task).State = EntityState.Added;
+                db.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+
+            return View(task);
         }
 
         [HttpGet]
