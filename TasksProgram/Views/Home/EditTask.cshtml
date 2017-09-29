@@ -7,19 +7,27 @@
 @using (Html.BeginForm())
 {
      @Html.HiddenFor(m => m.ID)
-     <div class="editor-lable">
-     @Html.LabelFor(m => m.Title)
-     </div>
-     <div class="editor-field">
-     @Html.EditorFor(m => m.Title)
-     @Html.ValidationMessageFor(m => m.Title)
-     </div>
-     <div class="editor-lable">
-     @Html.LabelFor(m => m.Record)
-     </div>
-     <div class="editor-field">
-     @Html.EditorFor(m => m.Record)
-     @Html.ValidationMessageFor(m => m.Record)
-     </div>
-     <input type="submit" value="Сохранить" />
+    <div class="form-group">
+        <div class="editor-lable">
+            @Html.LabelFor(m => m.Title)
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Title)
+        </div>
+    </div>
+    <br />
+    <div class=" form-group">
+        <div class="editor-field">
+            @Html.LabelFor(m => m.Record)
+        </div>
+        <div class="col-md-6">
+            @Html.TextAreaFor(m => m.Record, 10, 55, null)
+            @Html.ValidationMessageFor(m => m.Record)
+        </div>
+    </div>
+    <br /><br />
+    <div class="input-group">
+        <button type="submit" class=" btn btn-success">Сохранить</button>
+    </div>
 }

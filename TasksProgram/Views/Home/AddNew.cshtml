@@ -9,19 +9,27 @@
 
 @using (Html.BeginForm())
 {
-    <div class="editor-lable">
-        @Html.LabelFor(m => m.Title)
+    <div class="form-group">
+        <div class="editor-lable">
+            @Html.LabelFor(m => m.Title)
+        </div>
+            <div class="col-md-6">
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Title)
+            </div>
     </div>
-    <div class="editor-field">
-        @Html.EditorFor(m => m.Title)
-        @Html.ValidationMessageFor(m => m.Title)
+    <br />
+    <div class=" form-group">
+        <div class="editor-field">
+            @Html.LabelFor(m => m.Record)
+        </div>
+        <div class="col-md-6">
+            @Html.TextAreaFor(m => m.Record, 10, 55, null)   
+            @Html.ValidationMessageFor(m => m.Record)
+        </div>
     </div>
-    <div class="editor-lable">
-        @Html.LabelFor(m => m.Record)
-    </div>
-    <div class="editor-field">
-         @Html.EditorFor(m => m.Record)
-         @Html.ValidationMessageFor(m => m.Record)
-    </div>
-    <input type="submit" value="Добавить" />
+    <br /><br />
+        <div class="input-group">
+            <button type="submit" class=" btn btn-success">Добваить</button>
+        </div>
 }
