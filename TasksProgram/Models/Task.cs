@@ -9,6 +9,7 @@ namespace TasksProgram.Models
 {
     public class Task
     {
+        [Key]
         [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
 
@@ -16,7 +17,7 @@ namespace TasksProgram.Models
         [Display(Name = "Заголовок")]
         public string Title { get; set; }
 
-        [Required(ErrorMessage = "Поле должно быть заполненым")]
+        [Required(ErrorMessage = "Поле \"Текст\" пустое")]
         [MaxLength(100)]
         [Display(Name = "Текст")]
         public string Record { get; set; }

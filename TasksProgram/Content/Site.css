@@ -1,7 +1,7 @@
 ﻿body {
     font-size: 14px;
     font-family: Verdana, Arial, Helvetica, Sans-serif;
-    background-color: #d3d3ff;
+    background-color: #dceaf4;
     padding-left: 50px;
 }
 
@@ -21,13 +21,12 @@ nav{
     display: inline;
 }
 
-td{
+.border-container{
+    border:2px solid #c1c1c1;
+}
+/*td{
     padding-right: 40px;
-}
-
-form-custom{
-    width: 400px;
-}
+}*/
 
 .field-validation-error {
     color: #b94a48;

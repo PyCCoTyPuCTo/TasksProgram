@@ -3,22 +3,24 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Заметки";
 }
 
+@if(Model.Count() == 0)
+{
+    <div class="alert alert-warning">Список задач пуст</div>
+}
 
-<div class="table-striped">
-        @foreach (Task task in Model)
-        {
-            <td>
-                <div class="row">
-                    <tr><p>@task.Title</p></tr>
-                    <tr><p>@task.Record</p></tr>
-                    <div class="btn-group" role="group">
-                        @Html.ActionLink("Редактировать", "EditTask", new { id = task.ID }, new { @class = "btn btn-warning" })
-                        @Html.ActionLink("Удалить", "Delete", new { id = task.ID }, new { @class ="btn btn-danger" })
-                    </div>
-                </div>
-                <br />
-            </td>
-    }
-</div>
+@foreach (Task task in Model)
+{
+    <div class="container border-container">
+        <tr><p><h3>@task.Title</h3></p></tr>
+        <tr><p>@task.Record</p></tr>
+        <div class="btn-group" role="group">
+            @Html.ActionLink("Редактировать", "EditTask", new { id = task.ID }, new { @class = "btn btn-warning" })
+            @Html.ActionLink("Удалить", "Delete", new { id = task.ID }, new { @class = "btn btn-danger" })
+        </div>
+        <br><br/>
+    </div>
+    <br><br />
+}

@@ -11,22 +11,26 @@ namespace TasksProgram.Controllers
     public class HomeController : Controller
     {
 
-        TaskContext db = new TaskContext();
-
         public ActionResult Index()
         {
-                return View(db.Tasks);
+            using (var db = new TaskContext())
+            {
+                return View(db.Tasks.ToList());
+            }
         }
 
         [HttpGet]
         public ActionResult EditTask(int? id)
         {
+            using (var db = new TaskContext())
+            {
                 if (id == null)
                     return HttpNotFound();
 
                 Task task = db.Tasks.Find(id);
                 if (task != null)
                     return (View(task));
+            }
             return HttpNotFound();
         }
 
@@ -35,12 +39,14 @@ namespace TasksProgram.Controllers
         {
             if (ModelState.IsValid)
             {
+                using (var db = new TaskContext())
+                {
                     db.Entry(task).State = EntityState.Modified;
                     db.SaveChanges();
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
             }
-
-            return View(task);
+            return View(task);   
         }
 
         [HttpGet]
@@ -54,9 +60,11 @@ namespace TasksProgram.Controllers
         {
             if (ModelState.IsValid)
             {
+                using (var db = new TaskContext())
+                {
                     db.Entry(task).State = EntityState.Added;
                     db.SaveChanges();
-                
+                }
                 return RedirectToAction("Index");
             }
 
@@ -66,6 +74,8 @@ namespace TasksProgram.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
+            using (var db = new TaskContext())
+            {
                 Task deleteTask = db.Tasks.Find(id);
                 if (deleteTask == null)
                 {
@@ -74,13 +84,8 @@ namespace TasksProgram.Controllers
 
                 db.Tasks.Remove(deleteTask);
                 db.SaveChanges();
-                return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-                db.Dispose();
-                base.Dispose(disposing);
+            }
+            return RedirectToAction("Index");
         }
     }
 }

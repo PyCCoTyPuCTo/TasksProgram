@@ -2,6 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Добавление";
 }
 
 
@@ -13,7 +14,7 @@
         <div class="editor-lable">
             @Html.LabelFor(m => m.Title)
         </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Title)
             </div>
@@ -23,12 +24,11 @@
         <div class="editor-field">
             @Html.LabelFor(m => m.Record)
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             @Html.TextAreaFor(m => m.Record, 10, 55, null)   
             @Html.ValidationMessageFor(m => m.Record)
         </div>
     </div>
-    <br /><br />
         <div class="input-group">
             <button type="submit" class=" btn btn-success">Добваить</button>
         </div>
