@@ -1,0 +1,18 @@
+﻿@model TasksProgram.Models.Task
+@using (Html.BeginForm())
+{
+
+    <div class="form-group">
+
+        @Html.LabelFor(m => m.Title)
+        @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Title)
+        @Html.LabelFor(m => m.Record)
+        @Html.TextAreaFor(m => m.Record, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Record)
+            <br/>
+        <div class="input-group">
+            <button type="submit" class=" btn btn-success">Отправить</button>
+        </div>
+    </div>
+}

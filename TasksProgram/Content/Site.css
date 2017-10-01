@@ -1,16 +1,12 @@
 ﻿body {
+    padding-top:15px;
     font-size: 14px;
     font-family: Verdana, Arial, Helvetica, Sans-serif;
     background-color: #dceaf4;
-    padding-left: 50px;
 }
 
 nav{
     display: block;
-}
-
-.menu{
-    padding-left: 40px;
 }
 
 .menu ul{
@@ -24,9 +20,6 @@ nav{
 .border-container{
     border:2px solid #c1c1c1;
 }
-/*td{
-    padding-right: 40px;
-}*/
 
 .field-validation-error {
     color: #b94a48;

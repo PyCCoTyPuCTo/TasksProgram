@@ -13,10 +13,12 @@ namespace TasksProgram.Models
         [HiddenInput(DisplayValue = false)]
         public int ID { get; set; }
 
+        [AllowHtml]
         [MaxLength(20)]
         [Display(Name = "Заголовок")]
         public string Title { get; set; }
 
+        [AllowHtml]
         [Required(ErrorMessage = "Поле \"Текст\" пустое")]
         [MaxLength(100)]
         [Display(Name = "Текст")]

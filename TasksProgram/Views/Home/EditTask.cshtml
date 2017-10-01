@@ -5,29 +5,4 @@
 
 @model TasksProgram.Models.Task
 
-@using (Html.BeginForm())
-{
-     @Html.HiddenFor(m => m.ID)
-    <div class="form-group">
-        <div class="editor-lable">
-            @Html.LabelFor(m => m.Title)
-        </div>
-        <div class="col-md-4">
-            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Title)
-        </div>
-    </div>
-    <br />
-    <div class=" form-group">
-        <div class="editor-field">
-            @Html.LabelFor(m => m.Record)
-        </div>
-        <div class="col-md-12">
-            @Html.TextAreaFor(m => m.Record, 10, 55, null)
-            @Html.ValidationMessageFor(m => m.Record)
-        </div>
-    </div>
-    <div class="input-group">
-        <button type="submit" class=" btn btn-success">Сохранить</button>
-    </div>
-}
+@Html.Partial("_TaskForm", Model)

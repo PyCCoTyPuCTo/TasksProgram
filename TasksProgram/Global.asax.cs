@@ -14,8 +14,6 @@ namespace TasksProgram
     {
         protected void Application_Start()
         {
-            //Database.SetInitializer(new TaskDbInit());
-
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

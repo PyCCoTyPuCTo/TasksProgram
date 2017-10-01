@@ -1,21 +1,19 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
 </head>
 
 <body>
-    <br />
-    <nav>
-        <div class="btn-group" role="group">
-            <ul class="menu">
-                <li>@Html.ActionLink("Главная", "Index", "Home", new { @class = "btn btn-default" } )</li>
-                <li>@Html.ActionLink("Создать заметку", "AddNew", "Home", new { @class = "btn btn-default" })</li>
-        </ul>
+    <div class=" container">
+        @Html.ActionLink("Главная", "Index", "Home", new { @class = "btn btn-default" })
+        @Html.ActionLink("Создать заметку", "AddNew", "Home", new { @class = "btn btn-default" })
     </div>
-    </nav>
-    @RenderBody()
+    <div class="container">
+        @RenderBody()
+    </div>
+
 </body>
 </html>
